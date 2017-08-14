@@ -28,8 +28,8 @@ class configData {
         int getBAUD();
         
     private:
-        const char *wifissid;
-        const char *wifipass;
+        String wifissid;
+        String wifipass;
         int serbaud;
 };
 

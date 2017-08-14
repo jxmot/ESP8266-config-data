@@ -48,7 +48,16 @@ configData::configData()
             // buffer to be mutable. If you don't use ArduinoJson, you may as well
             // use configFile.readString instead.
             cfgData.readBytes(buf.get(), size);
-            StaticJsonBuffer<200> jsonBuffer;
+            
+            // Using the sample `data/config.dat` file where its contents are - 
+            //      {"wifi-ssid":"your ssid here","wifi-pass":"your wifi password here","ser-baud":115200}
+            // the tool found at - 
+            //      https://bblanchon.github.io/ArduinoJson/assistant/
+            // indicates a size of (131 + 90), we will determine the value 
+            // programmatically - 
+            const size_t bufferSize = JSON_OBJECT_SIZE(3) + 90;
+            StaticJsonBuffer<bufferSize> jsonBuffer;
+            
             JsonObject& json = jsonBuffer.parseObject(buf.get());
             
             if (!json.success()) {
@@ -58,9 +67,16 @@ configData::configData()
                 /*
                     This is another place where you can modify things...
                     add, modifiy, or remove as needed.
+                    
+                    Data obtained should be saved locally, when `JsonObject`
+                    goes out of scope it will be deallocated from memory.
+                    
+                    Don't rely on the object being retained in memory!
                 */
-                wifissid = json["wifi-ssid"];
-                wifipass = json["wifi-pass"];
+                const char *tmp = json["wifi-ssid"];
+                wifissid = String(tmp);
+                tmp = json["wifi-pass"];
+                wifipass = String(tmp);
                 serbaud  = json["ser-baud"];
             }
         }
@@ -82,22 +98,22 @@ int configData::getError(String &s)
 */
 char *configData::getSSID()
 {
-    return (char *)wifissid;
+    return (char *)wifissid.c_str();
 }
 
 String configData::getSSIDString()
 {
-    return String(wifissid);
+    return wifissid;
 }
 
 char *configData::getPASS()
 {
-    return (char *)wifipass;
+    return (char *)wifipass.c_str();
 }
 
 String configData::getPASSString()
 {
-    return String(wifipass);
+    return wifipass;
 }
 
 int configData::getBAUD()
