@@ -55,9 +55,9 @@ I've tested the plug-in separately in each of the locations and have had no issu
 
 Start with an unmodified version of the code from this repository. Please use the following steps - 
 
-1) Run the *Arduino IDE* and go to the *Tools* menu and find **`Flash Size:`** and choose **'4M (1M SPIFFS)'**.
-2) Open the **ino** file in the *Arduino IDE* and upload it to the ESP8266. **Do not** open the serial monitor.
-3) Then go to the *Tools* menu and click on **`ESP8266 Sketch Data Upload`**.
+1. Run the *Arduino IDE* and go to the *Tools* menu and find **`Flash Size:`** and choose **'4M (1M SPIFFS)'**.
+2. Open the **ino** file in the *Arduino IDE* and upload it to the ESP8266. **Do not** open the serial monitor.
+3. Then go to the *Tools* menu and click on **`ESP8266 Sketch Data Upload`**.
 
 Your SPIFFS along with the file it contains will be uploaded to the ESP8266. After that has completed open the *serial monitor* and reset the ESP8266. 
 
