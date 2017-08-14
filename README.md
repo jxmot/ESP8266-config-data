@@ -7,7 +7,7 @@
         * [Installation](https://bitbucket.org/jxmot/esp8266-config-data/overview#markdown-header-installation)
 * [Running the Application](https://bitbucket.org/jxmot/esp8266-config-data/overview#markdown-header-running-the-application)
     * [Next Steps](https://bitbucket.org/jxmot/esp8266-config-data/overview#markdown-header-next-steps)
-
+* [Additional Notes](https://bitbucket.org/jxmot/esp8266-config-data/overview#markdown-header-additional-notes)
 
 # Overview
 
@@ -85,4 +85,27 @@ Edit the file and change `"your ssid here"` and `"your wifi password here"` to m
 5) Open the **ino** file in the *Arduino IDE* and upload it to the ESP8266. **Do not** open the serial monitor.
 6) Then go to the *Tools* menu and click on **`ESP8266 Sketch Data Upload`**.
 
-After the SPIFFS has uploaded you can open the *serial monitor* and reset the ESP8266.
+After the SPIFFS has uploaded you can open the *serial monitor* and reset the ESP8266. You should now see something *like this* - 
+
+```
+[SSID]
+[PASSWORD]
+115200
+..wifi evt: 3
+.
+WiFi connected
+IP address: 
+192.168.0.20
+```
+
+Where `[SSID]` and `[PASSWORD]` are the values you edited in the `data/config.dat` file.
+
+# Additional Notes
+
+* **`configData.cpp`** - A sizable portion of this code came from one or more examples that I found online. I've made some modifications to tailor the code to my needs. However there are a couple of *specific* lines where I left the code "as-is".
+    * `line 38: if (size > 1024)` - This checks the size of the file that has been opened. This check for `(size > 1024)` was left as I found it. I'm not sure if there is any size limits other than not over running the capacity of the chosen SPIFFS (*I'm using 1meg*).
+    * `line 51: StaticJsonBuffer<200> jsonBuffer;` - According to the **ArduinoJson** documentation (<https://bblanchon.github.io/ArduinoJson/>) this line is utilizing memory allocated on the *stack*. An alternative would be to use the *heap*. At this point my preference is *heap*, although I've left the code as I found it.
+    * Adjustments to the values (`1024` and `200`) will likely be needed if a larger JSON file is to be read and parsed. I don't have a way to *estimate* the value for memory allocation other than "Oops, something's not working".
+    
+
+
