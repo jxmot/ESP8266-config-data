@@ -45,6 +45,7 @@ void setup() {
         dlog->println(cfgdat->getPASSString());
         dlog->println(cfgdat->getBAUD());
 
+        WiFi.mode(WIFI_STA);
         // Use the functions that return `const char *` because
         // WiFi.begin() doesn't take String as an arg.
         WiFi.begin(cfgdat->getSSID(), cfgdat->getPASS());
@@ -62,7 +63,7 @@ void setup() {
     dlog->println("");
     dlog->println("WiFi connected");  
     dlog->println("IP address: ");
-    dlog->println(WiFi.localIP());
+    dlog->println(WiFi.localIP().toString());
 }
 
 
