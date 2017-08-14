@@ -107,5 +107,5 @@ Where `[SSID]` and `[PASSWORD]` are the values you edited in the `data/config.da
     * `line 51: StaticJsonBuffer<200> jsonBuffer;` - According to the **ArduinoJson** documentation (<https://bblanchon.github.io/ArduinoJson/>) this line is utilizing memory allocated on the *stack*. An alternative would be to use the *heap*. At this point my preference is *heap*, although I've left the code as I found it.
     * Adjustments to the values (`1024` and `200`) will likely be needed if a larger JSON file is to be read and parsed. I don't have a way to *estimate* the value for memory allocation other than "Oops, something's not working".
     
-
+I expect to revisit this repository and make changes as I learn more about **SPIFFS** and **ArduinoJson**.
 
