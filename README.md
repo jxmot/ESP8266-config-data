@@ -73,17 +73,17 @@ your wifi password here
 
 Let's edit the configuration data and change the SSID and password to something *usable*.
 
-1) Edit the `config.dat` file, it's found in `/data`.
-2) The contents currently look like this - 
+1. Edit the `config.dat` file, it's found in `/data`.
+2. The contents currently look like this - 
 
 `{"wifi-ssid":"your ssid here","wifi-pass":"your wifi password here","ser-baud":115200}`
 
 Edit the file and change `"your ssid here"` and `"your wifi password here"` to match your SSID and passowd.
 
-3) Save and close the file.
-4) Run the *Arduino IDE* and go to the *Tools* menu and find **`Flash Size:`** and choose **'4M (1M SPIFFS)'**.
-5) Open the **ino** file in the *Arduino IDE* and upload it to the ESP8266. **Do not** open the serial monitor.
-6) Then go to the *Tools* menu and click on **`ESP8266 Sketch Data Upload`**.
+3. Save and close the file.
+4. Run the *Arduino IDE* and go to the *Tools* menu and find **`Flash Size:`** and choose **'4M (1M SPIFFS)'**.
+5. Open the **ino** file in the *Arduino IDE* and upload it to the ESP8266. **Do not** open the serial monitor.
+6. Then go to the *Tools* menu and click on **`ESP8266 Sketch Data Upload`**.
 
 After the SPIFFS has uploaded you can open the *serial monitor* and reset the ESP8266. You should now see something *like this* - 
 
