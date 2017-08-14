@@ -55,9 +55,11 @@ I've tested the plug-in separately in each of the locations and have had no issu
 
 Start with an unmodified version of the code from this repository. Please use the following steps - 
 
-1. Run the *Arduino IDE* and go to the *Tools* menu and find **`Flash Size:`** and choose **'4M (1M SPIFFS)'**.
-2. Open the **ino** file in the *Arduino IDE* and upload it to the ESP8266. **Do not** open the serial monitor.
-3. Then go to the *Tools* menu and click on **`ESP8266 Sketch Data Upload`**.
+**1**) Run the *Arduino IDE* and go to the *Tools* menu and find **`Flash Size:`** and choose **'4M (1M SPIFFS)'**.
+
+**2**) Open the **ino** file in the *Arduino IDE* and upload it to the ESP8266. **Do not** open the serial monitor.
+
+**3**) Then go to the *Tools* menu and click on **`ESP8266 Sketch Data Upload`**.
 
 Your SPIFFS along with the file it contains will be uploaded to the ESP8266. After that has completed open the *serial monitor* and reset the ESP8266. 
 
@@ -73,17 +75,21 @@ your wifi password here
 
 Let's edit the configuration data and change the SSID and password to something *usable*.
 
-1. Edit the `config.dat` file, it's found in `/data`.
-2. The contents currently look like this - 
+**1**) Edit the `config.dat` file, it's found in `/data`
+
+**2**) The contents currently look like this - 
 
 `{"wifi-ssid":"your ssid here","wifi-pass":"your wifi password here","ser-baud":115200}`
 
-Edit the file and change `"your ssid here"` and `"your wifi password here"` to match your SSID and passowd.
+Edit the file and change `"your ssid here"` and `"your wifi password here"` to match your SSID and password.
 
-3. Save and close the file.
-4. Run the *Arduino IDE* and go to the *Tools* menu and find **`Flash Size:`** and choose **'4M (1M SPIFFS)'**.
-5. Open the **ino** file in the *Arduino IDE* and upload it to the ESP8266. **Do not** open the serial monitor.
-6. Then go to the *Tools* menu and click on **`ESP8266 Sketch Data Upload`**.
+**3**) Save and close the file.
+
+**4**) Run the *Arduino IDE* and go to the *Tools* menu and find **`Flash Size:`** and choose **'4M (1M SPIFFS)'**.
+
+**5**) Open the **ino** file in the *Arduino IDE* and upload it to the ESP8266. **Do not** open the serial monitor.
+
+**6**) Then go to the *Tools* menu and click on **`ESP8266 Sketch Data Upload`**.
 
 After the SPIFFS has uploaded you can open the *serial monitor* and reset the ESP8266. You should now see something *like this* - 
 
